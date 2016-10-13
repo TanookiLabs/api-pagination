@@ -8,6 +8,8 @@ module ApiPagination
 
     attr_accessor :include_total
 
+    attr_accessor :grape_declare_params
+
     def configure(&block)
       yield self
     end
@@ -17,6 +19,7 @@ module ApiPagination
       @per_page_header = 'Per-Page'
       @page_header     = nil
       @include_total   = true
+      @grape_declare_params = true
     end
 
     ['page', 'per_page'].each do |param_name|

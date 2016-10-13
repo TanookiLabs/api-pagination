@@ -39,6 +39,7 @@ module Grape
         def self.paginate(options = {})
           route_setting :per_page, options[:per_page]
           route_setting :max_per_page, options[:max_per_page]
+          return unless ApiPagination.config.declare_params
           params do
             optional :page,     :type => Integer, :default => 1,
                                 :desc => 'Page of results to fetch.'
